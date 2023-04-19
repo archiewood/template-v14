@@ -24,13 +24,13 @@ Write queries using markdown code fences ` ``` `:
 
 ```orders_by_month
 select
-  date_trunc('month', order_datetime) as order_month,
+  left(order_datetime,7) as order_month,
   count(*) as number_of_orders,
   sum(sales) as sales_usd0k,
   sum(sales)/count(*) as average_order_value_usd2
 from orders
 
-group by 1 order by 1 desc
+group by 1 order by 1
 ```
 
 You can see both the SQL and the query results by interacting with the query above.

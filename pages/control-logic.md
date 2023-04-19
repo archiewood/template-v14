@@ -30,7 +30,7 @@ You can use `{#each}` statements to loop through **each row** of a query, and ge
 
 ```orders_per_day
 select
-date_trunc('day', order_datetime) as date,
+left(order_datetime,10) as date,
 sum(sales) as sales_usd
 from orders
 group by 1
